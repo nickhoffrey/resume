@@ -1,0 +1,818 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Introduction to Typescript">
+  <meta name="author" content="Mario Romano">
+    <link rel="shortcut icon" href="../favicon.ico">
+
+  <title>Introduction to Typescript</title>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://magemello.github.io/articles/002-typescript.html'; // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "002-typescript"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+  </script>
+
+    <!-- for Facebook -->
+    <meta property="og:title" content="Introduction to Typescript - Mario Romano" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="img/typescript.png" />
+    <meta property="og:url" content="http://magemello.github.io/articles/002-typescript.html" />
+    <meta property="og:description" content="Typescript is an open source language developed by Microsoft and is a superset of Javascript, let's have a look at its
+                  key features and how to install it and configure it to run our first typescript app" />
+    <!-- for Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Introduction to Typescript - Mario Romano" />
+    <meta name="twitter:description" content="Typescript is an open source language developed by Microsoft and is a superset of Javascript, let's have a look at its
+                  key features and how to install it and configure it to run our first typescript app" />
+    <meta name="twitter:image" content="http://magemello.github.io/articles/img/typescript.png" />
+
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="../css/animate.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link href="../css/blog.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="../css/monokai-sublime.css">
+
+</head>
+
+<body>
+
+<div id="main" class="article">
+  <div id="intro" class="col-md-12">
+    <!-- Donation div -->
+    <div class="donation-div-trasform donation-div-trasform-top">
+      <a href="https://secure.savethechildren.org.uk/donate/">
+        <div class="donation-div donation-div-top">
+          <img src="../img/stc_logo.png" alt="Save the Children" class="donate-img">
+          <div class="rotate-ribbon">
+            <h1 class="red-ribbon">
+              <strong class="red-ribbon-content">Donate</strong>
+            </h1>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!-- /.Donation div -->
+    <header>
+      <div class="content text-center wow fadeIn">
+        <div class="row profile-container">
+          <div class="">
+            <ul class="list-inline">
+              <li>
+                <a href="https://github.com/magemello" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/MagemelloMario" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="https://uk.linkedin.com/in/mario-romano-51a6a714" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+              </li>
+            </ul>
+            <a href="../index.html"><img class="img-circle" id="img-circle-profile" width="100px" src="../img/profile.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-header"><a href="../index.html"><i class="fa fa-user"></i> Mario Romano</a></div>
+    </header>
+
+  </div><!-- /#intro -->
+
+  <div id="content" class="col-md-12">
+    <a href="../blog.html"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Blog</a>
+    <div role="tabpanel">
+
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active wow" id="posts">
+
+          <section class="post featured wow fadeIn">
+            <header>
+              <h2 class="title">
+                  Introduction to Typescript
+              </h2>
+              <div class="meta">
+                <div class="meta col-xs-12  col-sm-8">
+                  <div class="meta__info">
+                    <span class="meta__author"><img src="../img/profile.jpg" class="img-circle"  alt="Meta avatar" width="30" height="30">
+                      <a href="#"> Mario Romano</a>  &nbsp;</span>
+                    <span class="meta__date"><span class="glyphicon glyphicon-calendar"></span>  24. May, 2016</span>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div class="description">
+              <p>
+                  Typescript is an open source language developed by Microsoft and is a superset of Javascript. Let's have a look at its
+                  key features and how to install it and configure it in order to run our first typescript app.<br>
+                    <br><b>Key Features:</b>
+                <ol>
+                    <li>Easy to configure</li>
+                    <li>Get translated into nice Javascript</li>
+                    <li>Syntax and Type similar to Java</li>
+                    <li>Let and const, function scope variable and Immutable variable</li>
+                    <li>Arrow Expressions</li>
+                    <li>For of / For in</li>
+                    <li>Class and Interfaces</li>
+                    <li>Access Modifiers</li>
+                    <li>Module</li>
+                    <li>Ambient Declaration</li>
+                    <li>Decorators / Annotations</li>
+                </ol>
+                  <br>
+                <h4>Easy to configure</h4>
+
+                You can install typescript by downloading it from the npm repository.
+              <pre>
+                <code class="terminal">
+    npm install -g typescript
+                </code>
+              </pre>
+
+                If you don't know if you have npm and Node.Js installed, run the following commands in your terminal to check it:
+                <pre>
+                <code class="terminal">
+    node -v in
+    npm -v
+                </code>
+              </pre>
+
+                If you don't have Node.js and npm, download it from here: <a href="https://nodejs.org/en/download/"
+                                                                             title="download nodejs">https://nodejs
+                .org/en/download/</a>, or Mac users can use brew :
+               <pre>
+                <code class="terminal">
+    brew install node
+                </code>
+              </pre>
+                Ubuntu users can use apt-get:
+               <pre>
+                <code class="terminal">
+    curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+                </code>
+              </pre>
+
+                To test if the environment is fully working, clone the following typescript sample project from github  <a
+                    href="https://github.com/magemello/typescript-sample-project"
+                    title="typescript-sample-project">https://github.com/magemello/typescript-sample-project</a>
+                or copy and paste the following class in a .ts file
+              <pre>
+helloworld.ts
+                <code class="javascript">
+    function sayHello(name) {
+        return "Hello World! I'm " + name;
+    }
+
+    let user = "Mario Romano";
+
+    document.body.innerHTML = sayHello(user);
+                </code>
+</pre>
+                then from the terminal run the typescript compiler, and if everything is setup correctly you should see a .js file appear:
+
+                  <pre>
+                <code class="terminal">
+    tsc helloworld.ts
+                </code>
+              </pre>
+
+                Now your folder contains 2 helloworld files, a .ts and .js. Great, the next step is easy. To show
+                the content of our hello world file inside a browser we need a .html that includes the generated
+                .js file.
+
+                <pre>
+index.html
+                <code class="html">
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;&lt;title&gt;TypeScript sample project&lt;/title&gt;&lt;/head&gt;
+    &lt;body&gt;
+    &lt;script src=&quot;helloworld.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+                </code>
+              </pre>
+                <br>
+              <h4>Get translated into nice Javascript</h4>
+
+                Typescript is compiled in nice readable Javascript. Because of the compiler there are two levels of errors:
+                <ol>
+                    <li>Compiler errors (example 2)</li>
+                    <li>Runtime errors (example 3)</li>
+                </ol>
+                Unfortunately, even if typescript has types and the compiler warns you of some problems, you are not
+                stopped from doing silly things. You can have the same errors at runtime that
+                you would have with Javascript. An example of runtime error is the 3rd code set below that defines a variable with any type, assigns an integer to it, and then tries to execute it like a string function. As you can see, the error generated by the example number 3 is the same of the example number 1 which is written in javascript.
+              <pre>
+                <code class="javascript">
+    //Javascript (1)
+    var testVar = 123;
+    testVar.trim();
+
+    //Uncaught TypeError: testVar.trim is not a function(…)
+
+    //Typescript (2)
+    let testVar : string = 123;
+    testVar.trim();
+
+    //Compiler error: Type 'number' is not assignable to type 'string'.
+
+    //Typescript (3)
+    let testVar : any = 123;
+    testVar.trim();
+
+    //Runtime error: ORIGINAL EXCEPTION: TypeError: testVar.trim is not a function
+                </code>
+</pre>
+
+
+                <br>
+
+                The compilers setting are defined in the tsconfig.json. The tsconfig.json file specifies the root files and the compiler
+                options required to compile the project. The option ModuleResolution has 2 different strategies: Classic or Node, by default
+                is node. I recommend to use node, classic its there just for backward compatibility.
+              <pre>
+tsconfig.json
+                <code class="json">
+      {
+        "compilerOptions": {
+            "target": "es5",
+            "module": "commonjs",
+            "moduleResolution": "node",
+            "emitDecoratorMetadata": true,
+            "experimentalDecorators": true,
+            "sourceMap": true,
+            "removeComments": true,
+            "declaration": true,
+            "outDir": "dist"
+        },
+        "exclude": [
+        ],
+        "files": [
+        ],
+        "filesGlob": [
+        ]
+      }
+                </code>
+              </pre>
+
+              <br>
+
+                <h4>Syntax and Type similar to Java</h4>
+                Typescript is easy to learn for a java developer, also because there are some resemblances between their types.
+
+              <pre>
+                <code class="java">
+    Java                  Typescript
+
+
+    Object      ====>      any
+
+    void        ====>      void
+
+    boolean     ====>      boolean
+
+    array[]     ====>      array[]
+
+    String
+    char        ====>      string
+
+    int
+    long        ====>      number
+    short
+                </code>
+</pre>
+
+                <br>
+                <h4>Let and const, function scope variable and Immutable variable</h4>
+                In Typescript is not recommended to declare variables using var. To declare a variable you can use let or const.Now
+                let's see
+                what is the difference between let that is block scope and var that is function scoped:
+              <pre>
+                <code class="javascript">
+    //Javascript (1)
+    var people = 100;
+    if (people === 100) {
+        var people = 200;
+        //output: 200
+        console.log(people);
+    }
+
+    //output: 200
+    console.log(people);
+
+    //Typescript  (2)
+    let people = 100;
+    if (people === 100) {
+        let people = 200;
+        //output: 200
+        console.log(people);
+    }
+
+    //output: 100
+    console.log(people);
+                </code>
+</pre>
+
+                <br>Const is block scope as well and is also immutable, so after the initialization you can not change the
+                value of the const elements, let's see what it means:
+              <pre>
+                <code class="javascript">
+    const people = 123;
+    if (people === 123) {
+        const people = 456; // Allowed as its block scoped
+    }
+
+    people = 456; // ERROR: Left-hand side of an assignment expression cannot be a constant
+                </code>
+</pre>
+                <br>
+                <h4>Arrow function / Lambda</h4>
+                    <ol>
+                        <li>You don't need to keep typing <b>function</b></li>
+                        <li>It lexically captures the meaning of <b>this</b></li>
+                        <li>It lexically captures the meaning of <b>arguments</b></li>
+                    </ol>
+                  <pre>
+                <code class="javascript">
+    //Arrow function/lambda
+    let filter: (peopleName: string[], name: string) => string = function (peopleName, name) {
+        for (var currentName of peopleName) {
+            if (currentName === name) {
+                return name;
+            }
+        }
+    }
+
+    //Output: mario
+    console.log(filter(['mario', 'luigi', 'wario'], 'mario'));
+
+    //Arrow function/lambda less verbose
+    let filter2 = (peopleName: string[], name: string) => {
+        for (var currentName of peopleName) {
+            if (currentName === name) {
+                return name;
+            }
+        }
+    }
+
+    //Output: mario
+    console.log(filter2(['mario', 'luigi', 'wario'], 'mario'));
+                </code>
+              </pre>
+
+                Functions with => operator keep the outside context, so you don't have to do anymore hack like "self = this" to keep the
+                context.
+                <pre>
+                <code class="javascript">
+
+    //Javascript
+    function People() {
+        this.people = 100;
+        var self = this;
+        this.addOne = function() {
+            self.people++;
+        }
+    }
+
+    var community = new People();
+    setTimeout(community.addOne, 1000);
+
+    //Output: 100
+    setTimeout(function() {
+        console.log(community.people);
+    }, 2000);
+
+
+
+    //Typescript
+    class People {
+
+        people:number =  100;
+
+        addOne = () => {
+            this.people++;
+        }
+    }
+
+    var community = new People();
+    setTimeout(community.addOne, 1000);
+
+    //Output: 101
+    setTimeout(function() {
+        console.log(community.people);
+    }, 2000);
+                </code>
+              </pre>
+
+                <br>
+                <h4>For of vs For in</h4>
+                A nice add of EC6 that you can use also in Typescript is the "for of" that iterates over the value of an array instead of the
+                old
+                "for in" that iterates
+                over the key:
+
+              <pre>
+            <code class="javascript">
+    const people1 = ['mario', 'luigi', 'wario'];
+    for (let key in people1) {
+        //Output: 0, 1, 2
+        console.log(key);
+    }
+
+    const people2 = ['mario', 'luigi', 'wario'];
+    for (let person of people2) {
+        //Output: mario, luigi, wario
+        console.log(person);
+    }
+            </code>
+</pre>
+
+                <br>
+                <h4>Class and Interfaces</h4>
+                EC6 an Typescript have introduced classes. Classes are important to structure the code in elegant object oriented way.
+                <br>
+              <pre>
+            <code class="javascript">
+    class car {
+        color: string;
+
+        setColor(color: string): void {
+            this.color = color;
+        }
+
+        printColor(): void{
+            console.log(this.color);
+        }
+    }
+            </code>
+</pre>
+
+                <br>
+                Defining an Interface we can define a common behaviour for our classes and be more explicit about the functionality they provide.
+                A key difference between Typescript and Java is that compatibility of interfaces is determined by the properties on
+                the interface, rather than by the inheritance chain.
+              <pre>
+            <code class="javascript">
+    //Interface
+    interface Cars {
+        color: string;
+
+        setColor(color: string): void;
+    }
+
+    //Implements the interface
+    class Ferrari implements Cars {
+        color: string;
+
+        setColor(color: string): void {
+            this.color = color;
+        }
+
+        printColor(): void {
+            console.log(this.color);
+        }
+    }
+
+    //Execution
+    let supercar = new Ferrari();
+    supercar.setColor('red');
+
+    //Output: red
+    supercar.printColor();
+            </code>
+</pre>
+
+                You can also define abstract Class
+
+                              <pre>
+            <code class="javascript">
+    //The abstract class
+    abstract class Ferrari {
+        color: string;
+
+        setColor(color: string): void {
+            this.color = color;
+        }
+
+        abstract printColor(): void;
+    }
+
+    //Implements the abstract class
+    class FerrariGto implements Ferrari {
+        color: string;
+
+        setColor(color: string): void {
+            this.color = color;
+        }
+
+        printColor(): void{
+            console.log(this.color);
+        }
+    }
+
+    let gto = new FerrariGto();
+    gto.setColor('yellow');
+
+    //Output: yellow
+    gto.printColor();
+            </code>
+</pre>
+
+
+                Or simply extend a class
+
+                              <pre>
+            <code class="javascript">
+    //Original class
+    class FerrariGto {
+
+        car: string = 'Ferrari';
+
+        color: string;
+
+        setColor(color: string): void {
+            this.color = color;
+        }
+
+        getColor(): string {
+            return this.color;
+        }
+
+        printName(): void{
+            console.log(this.color);
+        }
+    }
+
+    //Extend class
+    class FerrariGtoSport extends FerrariGto {
+
+        color: string;
+
+        printName(): void{
+            console.log(this.car + " " + this.getColor() + " sport");
+        }
+    }
+
+    let gtoSport = new FerrariGtoSport();
+    gtoSport.setColor('red');
+
+    //Output: Ferrari red sport
+    gtoSport.printName();
+            </code>
+</pre>
+
+
+                <br>
+
+                <h4>Access Modifiers</h4>
+                With classes of course came also access modifiers. Be aware that the access modifiers are not translated to javascript,
+                but you can still get benefit out of it at compile time.
+
+                <br>
+
+                <table class="border-table" style="width: 800px;">
+                    <thead>
+                    <tr>
+                        <th>Modifier</th>
+                        <th><code>public</code></th>
+                        <th><code>private</code></th>
+                        <th><code>protected</code></th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr>
+                        <td>class instances</td>
+                        <td>yes</td>
+                        <td>no</td>
+                        <td>no</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>yes</td>
+                        <td>yes</td>
+                        <td>yes</td>
+                    </tr>
+                    <tr>
+                        <td>class children</td>
+                        <td>yes</td>
+                        <td>no</td>
+                        <td>yes</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>
+
+                <h4>Module - Import and Export</h4>
+                When you write code by default it is in the global scope, so how do we define scopes in typescript?
+                <br>We use the import and export keyword to do that. The export keyword creates a local scope that can be stored in a
+                separate file. But now you need to include this external file, to do that you can use the import keyword. To load this
+                module at runtime you have to use a module loader, you can choose between :
+
+                <ol>
+                    <li>CommonJS, server side</li>
+                    <li>SystemJS, wrap CommonJS for in browser use</li>
+                    <li>Require.js (AMD) for in browsers use</li>
+                    <li>Isomorphic (UMD)</li>
+                    <li>ECMAScript 2015 native modules (ES6)</li>
+                </ol>
+
+                Remember, if you want to use one of this module loader you have to include it in your project.
+
+                <br>
+              <pre>
+gto.ts
+            <code class="javascript">
+    export class FerrariGto {
+        color: string;
+
+        setColor(color: string): void {
+            this.color = color;
+        }
+
+        printColor(): void{
+            console.log(this.color);
+        }
+    }
+            </code>
+</pre>
+
+
+                              <pre>
+gto-sport.ts
+            <code class="javascript">
+    import { FerrariGto } from "./gto.ts"
+
+    export class FerrariGtoSport extends FerrariGto {
+        color: string;
+
+        setColor(color: string): void {
+            this.color = color;
+        }
+
+        printColor(): void{
+            console.log(this.color + " sport");
+        }
+    }
+            </code>
+</pre>
+
+                If you want to check an example where is utilized SystemJS, you can clone this Github project from the official typescript
+                repository: <a href="https://github.com/Microsoft/TypeScriptSamples/tree/master/systemjs">SystemJS and Typescript.</a>
+
+                <br>
+                <h4>Ambient Declarations </h4>
+                One of the first problems that you may have is how to use an old library written in javascript with typescript?<br>
+                TypeScript allows you to use existing JavaScript libraries in TypeScript using Ambient declarations. Let's say for example
+                that in our index.html we are importing jQuery and we want to use it inside our .ts file, this is how to do it:
+                <br>
+
+                              <pre>
+index.html
+            <code class="javascript">
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;&lt;title&gt;TypeScript sample project&lt;/title&gt;&lt;/head&gt;
+    &lt;body&gt;
+    &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;helloworld.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+            </code>
+</pre>
+
+              <pre>
+helloworld.ts
+            <code class="javascript">
+    declare var $;
+
+    function sayHello(name) {
+        return "Hello World! I'm " + name;
+    }
+
+    let user = "Mario Romano";
+
+    $('body').html(sayHello(user));
+            </code>
+</pre>
+
+                <br>
+                <h4>Decorators / Annotations</h4>
+                Decorators use the form @expression, what a decorators does is add at runtime functionality to the annotated element.
+                Decorators can be applied on:
+                <ol>
+                    <li>Class</li>
+                    <li>Method</li>
+                    <li>Accessor</li>
+                    <li>Property</li>
+                    <li>Parameter</li>
+                    <li>Metadata</li>
+                </ol>
+
+                Some examples:
+              <pre>
+                <code class="javascript">
+    @sealed
+    class Greeter {
+
+        private _x: number;
+
+        greeting: string;
+
+        @format("Hello, %s")
+        greeting: string;
+
+        constructor(message: string) {
+            this.greeting = message;
+        }
+
+        @enumerable(false)
+        greet() {
+            return "Hello, " + this.greeting;
+        }
+
+        @validate
+        greetHello(@required name: string) {
+            return "Hello " + name + ", " + this.greeting;
+        }
+
+        @configurable(false)
+        get x() {
+            return this._x;
+        }
+    }
+                </code>
+</pre>
+
+
+                <br>
+                <h4>Typings </h4>
+                Typings is the simple way to manage and install TypeScript definitions. It uses typings.json
+                <br>
+              <pre>
+            <code class="json">
+    {
+    "ambientDependencies": {
+        "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
+        "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#5c182b9af717f73146399c2485f70f1e2ac0ff2b"
+        }
+    }
+            </code>
+</pre>
+
+              </p>
+            </div>
+            <footer>
+              <div id="disqus_thread"></div>
+            </footer>
+          </section>
+
+
+
+        </div>
+      </div><!-- /.tab-content -->
+    </div><!-- /tabpanel -->
+
+
+  </div><!-- /#content -->
+</div><!-- /#main -->
+
+
+<!-- Scripts -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/custom.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+  $( document ).ready(function() {
+    $('#intro').addClass('animated tada');
+  });
+
+
+
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = 'http://marioromano.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+</body>
+</html>

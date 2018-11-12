@@ -1,0 +1,272 @@
+.cat{
+/*        margin-top: -900px;
+*/}
+
+.portfolio-header{
+    position: absolute;
+    bottom: 0;
+    color: #ffffff;
+    font-style: italic;
+    margin: 0 36%;
+}
+.portfolio-header a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.portfolio-header a:hover{
+    color: #18bc9c;
+}
+
+.btn-social {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 20px;
+    line-height: 45px;
+}
+.btn-outline-cv:hover,
+.btn-outline-cv:focus,
+.btn-outline-cv:active,
+.btn-outline-cv.active {
+    border: solid 2px #fff;
+    color: #18bc9c;
+    background: rgb(97, 177, 230);
+}
+
+.btn-outline {
+    margin-top: 15px;
+    border: solid 2px #fff;
+    font-size: 20px;
+    color: #fff;
+    background: 0 0;
+    transition: all .3s ease-in-out;
+}
+
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-outline.active {
+    border: solid 2px #fff;
+    color: #18bc9c;
+    background: #fff;
+}
+
+
+/* RIBBON */
+
+.ribbon {
+    font-size: 16px !important;
+    /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+    width: 50%;
+    position: relative;
+    background: #EEB54D;
+    color: #fff;
+    text-align: center;
+    padding: 1em 2em;
+    /* Adjust to suit */
+    margin: 2em auto 3em;
+    /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+
+.ribbon:before,
+.ribbon:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1em;
+    border: 1.5em solid #F69733;
+    z-index: -1;
+}
+
+.ribbon:before {
+    left: -2em;
+    border-right-width: 1.5em;
+    border-left-color: transparent;
+}
+
+.ribbon:after {
+    right: -2em;
+    border-left-width: 1.5em;
+    border-right-color: transparent;
+}
+
+.ribbon .ribbon-content:before,
+.ribbon .ribbon-content:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: #A16723 transparent transparent transparent;
+    bottom: -1em;
+}
+
+.ribbon .ribbon-content:before {
+    left: 0;
+    border-width: 1em 0 0 1em;
+}
+
+.ribbon .ribbon-content:after {
+    right: 0;
+    border-width: 1em 1em 0 0;
+}
+
+/* RED RIBBON */
+
+.red-ribbon {
+    cursor: pointer;
+    font-size: 16px !important;
+    width: 167px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: #AA181E;
+    color: #fff;
+    text-align: center;
+    padding: 0.1em 0em;
+}
+
+.red-ribbon:before,
+.red-ribbon:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1em;
+    border: 0.5em solid #7A1418;
+    z-index: -1;
+}
+
+.red-ribbon:before {
+    left: -1em;
+    border-right-width: 1.5em;
+    border-left-color: transparent;
+}
+
+.red-ribbon:after {
+    right: -1em;
+    border-left-width: 1.5em;
+    border-right-color: transparent;
+}
+
+.red-ribbon .red-ribbon-content:before,
+.red-ribbon .red-ribbon-content:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: #5A1214 transparent transparent transparent;
+    bottom: -1em;
+}
+
+.red-ribbon .red-ribbon-content:before {
+    left: 0;
+    border-width: 1em 0 0 1em;
+}
+
+.red-ribbon .red-ribbon-content:after {
+    right: 0;
+    border-width: 1em 1em 0 0;
+}
+
+.rotate-ribbon{
+    position: absolute;
+    right: -14px;
+    top: 115px;
+    -ms-transform: rotate(50deg);
+    -webkit-transform: rotate(50deg);
+    transform: rotate(50deg);
+}
+
+.img-circle {
+    border: 2px solid #ffffff;
+}
+
+.img-circle:hover {
+    border: 2px solid #EEB54D;
+}
+
+.tag-shell {
+    cursor: pointer;
+    background: rgb(97, 177, 230);
+    border-radius: 15px 15px 15px 15px;
+    overflow: hidden;
+    font-weight: bolder;
+    display: inline-block;
+    padding: 3px 8px 3px 8px;
+    border: 2px solid #ffffff;
+}
+
+.tag-shell:hover {
+    background: #EEB54D;
+}
+
+.tag-shell-no-bg {
+    overflow: hidden;
+    font-weight: bolder;
+    display: inline-block;
+    padding: 3px 8px 3px 8px;
+}
+
+.donate-img {
+    cursor: pointer;
+    position: relative;
+    margin-top: 21px;
+    margin-right: -4px;
+    border: 0px;
+    -ms-transform: rotate(50deg);
+    -webkit-transform: rotate(50deg);
+    transform: rotate(50deg);
+    width: 70px;
+    height: 55px;
+    float: right;
+}
+
+.donation-div{
+    cursor: pointer;
+    position: absolute;
+    width: 13em;
+    height: 13em;
+    top: 4.7em;
+    right: 0px;
+    float: right;
+    z-index: 20;
+}
+
+@media screen and (max-width: 767px) {
+    .donation-div-trasform{
+        z-index: 20;
+        position: absolute;
+        right: 0;
+        top: 30px;
+        -webkit-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+
+    .donation-div-trasform-top{
+        top: 0;
+    }
+}
+
+.donation-div-top{
+    top: 0.2em;
+}
+
+.caption{
+     display: none;
+}
+.portfolio-item-noimage {
+    text-align: center;
+    height: 130px;
+    font-size: 19px;
+    color: #ffffff;
+}
+.portfolio-link-noimage{
+        color: #ffffff;
+}

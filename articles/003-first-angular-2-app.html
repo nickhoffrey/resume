@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Angular 2 and Typescript in action - Modules and Components">
+    <meta name="author" content="Mario Romano">
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <title>Angular 2 and Typescript in action - Modules and Components</title>
+    <script>
+        var disqus_config = function () {
+            this.page.url = 'http://magemello.github.io/articles/003-first-angular-2-app.html';
+            // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "003-first-angular-2-app.html"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+    </script>
+
+    <!-- for Facebook -->
+    <meta property="og:title" content="Angular 2 and Typescript in action - Modules and Components"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content="img/angular.png"/>
+    <meta property="og:url" content="http://magemello.github.io/articles/003-first-angular-2-app.html"/>
+    <meta property="og:description" content="In this article I will first give you a brief introduction on Modules and Components, and then I will show you
+                            how to code them in Angular 2 using Typescript."/>
+    <!-- for Twitter -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Angular 2 and Typescript in action - Modules and Components"/>
+    <meta name="twitter:description" content="In this article I will first give you a brief introduction on Modules and Components, and then I will show you
+                            how to code them in Angular 2 using Typescript."/>
+    <meta name="twitter:image" content="http://magemello.github.io/articles/img/angular.png"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/animate.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="../css/blog.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="../css/monokai-sublime.css">
+
+</head>
+
+<body>
+
+<div id="main" class="article">
+    <div id="intro" class="col-md-12">
+        <!-- Donation div -->
+        <div class="donation-div-trasform donation-div-trasform-top">
+            <a href="https://secure.savethechildren.org.uk/donate/">
+                <div class="donation-div donation-div-top">
+                    <img src="../img/stc_logo.png" alt="Save the Children" class="donate-img">
+                    <div class="rotate-ribbon">
+                        <h1 class="red-ribbon">
+                            <strong class="red-ribbon-content">Donate</strong>
+                        </h1>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- /.Donation div -->
+        <header>
+            <div class="content text-center wow fadeIn">
+                <div class="row profile-container">
+                    <div class="">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://github.com/magemello" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/MagemelloMario" class="btn-social btn-outline"><i
+                                        class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://uk.linkedin.com/in/mario-romano-51a6a714" class="btn-social btn-outline"><i
+                                        class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                        <a href="../index.html"><img class="img-circle" id="img-circle-profile" width="100px" src="../img/profile.jpg"
+                                                     alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-header"><a href="../index.html"><i class="fa fa-user"></i> Mario Romano</a></div>
+        </header>
+
+    </div><!-- /#intro -->
+
+    <div id="content" class="col-md-12">
+        <a href="../blog.html"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Blog</a>
+        <div role="tabpanel">
+
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active wow" id="posts">
+
+                    <section class="post featured wow fadeIn">
+                        <header>
+                            <h2 class="title">
+                                Angular 2 and Typescript in action - Modules and Components
+                            </h2>
+                            <div class="meta">
+                                <div class="meta col-xs-12  col-sm-8">
+                                    <div class="meta__info">
+                    <span class="meta__author"><img src="../img/profile.jpg" class="img-circle" alt="Meta avatar" width="30" height="30">
+                      <a href="#"> Mario Romano</a>  &nbsp;</span>
+                                        <span class="meta__date"><span class="glyphicon glyphicon-calendar"></span>  15. June, 2016</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="description">
+                            In this article I will first give you a brief introduction on Modules and Components, and then I will show you
+                            how to code them in Angular 2 using Typescript.
+
+                            <br><br>
+                            <h4>Angular 2 architecture</h4>
+                            Before we start to get in context I want to show you the eight fundamentals blocks of the Angular 2
+                            architecture.
+                            <ul>
+                                <li>Module</li>
+                                <li>Component</li>
+                                <li>Template</li>
+                                <li>Metadata</li>
+                                <li>Data Binding</li>
+                                <li>Directive</li>
+                                <li>Service</li>
+                                <li>Dependency Injection</li>
+                            </ul>
+                            <div class="img-article-wrap">
+                                <div class="img-article-wrap-background" style="background-color: #ffffff">
+                                    <img src="img/angular2architecture.png" alt="angular 2 architecture" style="max-height:300px" >
+                                </div>
+                            </div>
+                            <br>
+                            <h4>Module:</h4>
+                            Angular 2 apps are composed of modules. Modularity helps you to improve the separation of concerns,
+                            and also to reduce the scope of your block of code. As a module you can export class, function and values, often
+                            modules can also be libraries of other modules. But typically a module export a class that you can
+                            import and consume in other modules, example:
+
+              <pre>
+cpu.ts
+            <code class="javascript">
+    export class Cpu {
+        mhz: number;
+    }
+            </code>
+</pre>
+
+
+                              <pre>
+computer.ts
+            <code class="javascript">
+    import { Cpu } from "./cpu.ts"
+
+    export class Computer {
+
+        constructor(cpu: Cpu) {
+        }
+    }
+            </code>
+</pre>
+
+
+                            <br>
+                            <h4>Component:</h4>
+                            Components are one of the three types of directive available in Angular 2:
+                            <ul>
+                                <li>Components directive</li>
+                                <li>Structural directives</li>
+                                <li>Attribute directives</li>
+                            </ul>
+                            A Component is a directive with a template (HTML & CSS) and metadata. Because components have a template they
+                            are the main
+                            way to render your data and to specify the logic of your application.
+                            All the complexity and the logic of a component is hidden behind his HTML tag selector. The tag of your
+                            component is defined through the metadata properties <b>"selector"</b>,
+                            this and other properties instruct the framework on how to process a Component class.
+                            <br>Others metadata properties of a @Component are:
+                            <ul>
+                                <li><b>selector</b></li>
+                                <li><b>moduleId</b></li>
+                                <li><b>viewprovider/provider</b></li>
+                                <li><b>provider</b></li>
+                                <li><b>style/styleUrls</b></li>
+                                <li><b>template/templateUrl</b></li>
+                                <li><b>directives</b></li>
+
+                            </ul>
+                            Components use shadow DOM so everything you write in them gets encapsulated. This means that the
+                            HTML, CSS
+                            and logic of a component can not influence the behaviour of others components unless explicitly specified.
+                            <br>
+                            <h4>Prerequisites to use Angular 2</h4>
+                            In order to write and run an Angular 2 app, you need Node.js and npm installed on your machine. If you want to
+                            know
+                            how to install both of them please follow this <a href="004-how-to-install-node-and-npm.html"
+                                                                                     title="Guide on how to install npm and Node.j">guide
+                            on how to install npm and Node.js</a> .
+                            <br><br>
+                            <h4>Show me the code!!</h4>
+
+                            The code in this article is written in typescript. You can write Angular 2 in all the language supported by
+                            the framework, I choose typescript because remember me Java which I know well. Let’s start cloning a quick
+                            start project for Angular 2: <a
+                                href="https://github.com/magemello/angular2-sample-project"
+                                title="Sample Angular 2 app">https://github.com/magemello/angular2
+                            -sample-project</a>
+                            . This will save us the time needed to configure the project and will give us more time to focus on the
+                            code.
+                            <br><br>To clone and start the sample project type the following command in the terminal:
+
+                              <pre>
+                                <code class="terminal">
+    git clone https://github.com/magemello/angular2-sample-project
+    cd angular2-sample-project
+    npm install
+    npm start
+                                </code>
+                              </pre>
+                            If everything is working you should see inside your browser the classic hello world text.<br><br>
+                            Browsing in the src folder of the sample project you will see the 2 following files.
+
+<pre>
+main.ts
+            <code class="javascript">
+    import { bootstrap }    from '@angular/platform-browser-dynamic';
+    import { AppComponent } from './app.component';
+
+    bootstrap(AppComponent);
+
+            </code>
+</pre>
+
+<pre>
+app.component.ts
+            <code class="javascript">
+    import { Component } from '@angular/core';
+
+    @Component({
+        selector: 'my-app',
+        styles: ['h1 { color: red; }'],
+        template: `&lt;h1&gt;Hello world&lt;/h1&gt;`
+    })
+    export class AppComponent {
+    }
+            </code>
+</pre>
+
+                            In this 2 files, you can see modularity in action, the app.component.ts is exported and then imported and
+                            consumed by the main.ts.
+
+                            <h5><b>main.ts:</b></h5>
+                            The main.ts include also the <b>bootstrap</b> function, it tells to Angular what is the root
+                            component
+                            of your app. In our case, the root component that has to be called is the AppComponent.
+                            As second parameter bootstrap accept an array of service provider, but now we are
+                            not interested in how services work so I will come back to this topic when we will talk about services in the
+                            upcoming articles.
+                            <h5><b>app.component.ts:</b></h5>
+                            In this class, we see for the first time the <b>@Component</b> decorator, and 3 of his metadata properties in
+                            action : selector, styles and template.<br>
+                            As already mentioned, the <b>selector</b> metadata defines the HTML tag of your component, and in this
+                            case because is the root component of our app, is also the tag that we have to include in the index.html, as
+                            you can see in the index below.<br>
+                            With the <b>styles</b> properties you can define the CSS of your component, you can alternatively also define
+                            it inside the template.<br>
+                            The <b>template</b> tag define the HTML of your component, in this case is just a text but you can define
+                            also complex structure with it, just remember to avoid the error to use the <b>`</b> symbol instead of the
+                            <b>'</b>
+                            when you include the HTML.
+
+                            <pre>
+index.html
+            <code class="html">
+    &lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Angular 2 Sample Project&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;!-- css --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/styles.css&quot;&gt;
+
+    &lt;!-- Polyfill(s) for older browsers --&gt;
+    &lt;script src=&quot;node_modules/core-js/client/shim.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script src=&quot;node_modules/zone.js/dist/zone.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/reflect-metadata/Reflect.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/systemjs/dist/system.src.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- Systemjs conf--&gt;
+    &lt;script src=&quot;systemjs.config.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+    System.import('src').catch(function(err){ console.error(err); });
+    &lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+    &lt;my-app&gt;Loading...&lt;/my-app&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+            </code>
+</pre>
+                            <br>
+                            <h4>HTML and CSS in external files:</h4>
+                            Put together HTML, CSS and javascript it works for small application, but doesn't scale when
+                            things get complicated. So let's see how we can move the HTML and CSS of our app.component.ts in external
+                            files. If you want to see the following code switch on the external-html-css branch of the git project that you
+                            downloaded before.
+
+<pre>
+app.component.ts
+            <code class="javascript">
+    import { Component } from '@angular/core';
+
+    @Component({
+        moduleId: module.id,
+        selector: 'my-app',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css']
+    })
+    export class AppComponent {
+    }
+
+            </code>
+</pre>
+
+<pre>
+app.component.html
+            <code class="html">
+    &lt;h1&gt;Hello world&lt;/h1&gt;
+            </code>
+</pre>
+<pre>
+app.component.css
+            <code class="css">
+    h1 {
+        color: red;
+    }
+            </code>
+</pre>
+                            With this solution we have introduced also 3 more metadata properties : moduleId, templateUrl and
+                            styleUrls.<br>
+                            <b>TemplateUrl</b> and <b>styleUrls</b> define the name of the external CSS and HTML files. The path is the
+                            relative path starting from the position of your component.<br>
+                            The <b>moduleId</b> property is necessary when you define HTML or CSS as external files because his value is
+                            used by Angular 2 to evaluate the component path before the component is constructed, without it the
+                            framework would try to load the
+                            files from the application root. Keep in mind that the value to assign to the
+                            moduleId
+                            it's different if you decide to use SystemJs as module solver instead of CommonJS as in this example.
+
+                            </p>
+                        </div>
+                        <footer>
+                            <div id="disqus_thread"></div>
+                        </footer>
+                    </section>
+
+
+                </div>
+            </div><!-- /.tab-content -->
+        </div><!-- /tabpanel -->
+
+
+    </div><!-- /#content -->
+</div><!-- /#main -->
+
+
+<!-- Scripts -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/custom.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    $(document).ready(function () {
+        $('#intro').addClass('animated tada');
+    });
+
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = 'http://marioromano.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+</body>
+</html>
